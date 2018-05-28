@@ -1,0 +1,14 @@
+server:
+  port: 3334
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #由于该应用为注册中心，所以设置 为 false, 代表不向注册中心注册自己
+    fetch-registry: false #由于注册中心的职责就是维护服务实例， 它并不需要去检索服务， 所以也设置为 false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/euerka/
+  server:
+    enable-self-preservation: false #开发环境去掉自我保护模式
+
+
